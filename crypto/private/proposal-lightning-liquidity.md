@@ -1,0 +1,128 @@
+# Lightning Liquidity
+
+## Fundementals
+
+* Buying/Selling Channels
+  * The outpoint needs to be configurable to someone the taker chooses
+  * Ideally the inpoint doesn't have to be the maker
+* Marketplace is the appropriate design
+* Primary Functions:
+  * Front-end with simple UI/UX
+  * Discovery, matching, and price clearing of bids/asks (could be centralized or decentralized)
+    * Faciliate users publishing bid/asks
+    * Market data
+    * Thoughtful auction mechanics to ensure fair trading [^1]
+  * Coordinate signing (there may be a decentralized way of doing this)
+  * Help ensure high QoS of channels and reduce/eliminate attack vectors
+
+## Running a Node
+
+* Managed Hardware
+  * [Voltage](https://getvoltage.io/)
+  * [Blockdaemon](https://blockdaemon.com)
+* LND through CMD on their desktop/laptop
+  * BTCPay Server
+  * c-lightning
+  * LND
+  * Eclair
+* Custom Hardware
+  * [myNode](https://mynodebtc.com/)
+  * RaspiBlitz
+  * [Start9Labs](https://start9labs.com/)
+* Wallets w/ Built-in LN
+  * Umbrel
+
+_Can follow the lead of [Ride The Lightning (RTL)](https://github.com/Ride-The-Lightning/RTL)_
+
+## Customer Research
+
+* People are concerned about the funding and settlement fees
+  >[So $50 “ATM fees” should be expected?](https://www.reddit.com/r/lightningnetwork/comments/mv72hu/lightning_channels_needed/)
+* People are concerned about channel refill
+  >[...would patrons have to continue to "fill" their side of the channel when running low, thus requiring a BTC transaction to accomplish?](https://www.reddit.com/r/lightningnetwork/comments/mv72hu/lightning_channels_needed/)
+* Company doing "buy lightning filled channel in exchange for USD" [failed](https://twitter.com/sparkswap)
+  * Likely do to small market (desktop only app, lightninng wasn't popular from 2019-2020, applications of the wallet not abundant)
+* Many people asking on forums/[reddit](https://www.reddit.com/r/lightningnetwork/comments/mv72hu/lightning_channels_needed/) and [email (lightningto: 3.2k payments in 24 hours)](https://lightningto.me/) for inbound liquidity
+
+## Market Sizing
+
+**On Merchants**
+
+Coinbase Commerce: [$200M of transactions in over 2 years](https://www.coindesk.com/coinbases-retail-payments-wing-crosses-200m-in-transactions). 8k merchants. Many are using stablecoins (USDC, biggest rise).
+
+
+**What are people using LN today for?**
+
+Biggest channels,
+* LNBIG.org (24M) - General
+* ACINQ (8M) - General
+* Bitfinex (10M) - Exchange
+* Bitrefill (3M) - Commerce & General
+* Southxchange (2M) - Exchange
+* OpenNode (2M) - Commerce
+* CoinGate (1.5M) - Commerce
+* bravenewworld (1.5M) - General
+* nineteeneightyfour (Ride the Lightning?) (1.5M) - Wallet
+* Yalls.org (2.5M) - Microblogging (Could also be General?)
+* WalletOfSatoshi (2M) - Wallet
+* LIGHTNING (c-lightning) (1M) - General
+* mjolnir (Thor?) (1M) - General
+* SilentBob (1M) - General
+* River Financial (1M) - Exchange
+* Breez (1M) - Wallet
+* LightningTo.Me (1M) - General
+
+General ~40M
+Exchange ~13M
+Wallet ~4M
+Commerce ~6M
+
+
+## Implementations
+
+### Design 1 - Centralized Service
+
+**High-Level Breakdown**
+
+1. Market particpants send bid/ask orders to centralized service
+    ```
+    order_type:       {Bid|Ask}
+    order_id:         unique nonce
+    account_pub_key:  public key of account doing buying/selling
+    account_endpoint: network endpoint of node doing buying/selling
+    premium:          the liquidity premium being offered/asked for
+    contract_size:    in units of 1000 satoshis
+    lease_duration:   in units of 10 days
+    ```
+2. Market finds bid/ask matches according to maintained (and transparent) CLOB
+    * A 2-dimensional match between lease duration and order size
+3. Marketplace authority facilitates signing between parties
+   1. Creates funding transaction with appropriate CLTV for lease duration (to prevent closing)
+   2. Sends transaction to buyer and seller to sign
+   3. Marketplace authority publishes transaction
+
+**Problems w/ Design:**
+
+* What if a channel shuts down their node after receiving the premium?
+  * Can we do a smart contract that sends out payments spread out over a period of time?
+  * Could we eliminate premium and just do higher transaction fees?
+  * Put premium in escrow, if node is down early, only portion of premium is paid out
+* Who automates client operations (e.g. unlocking funds - if this even needs to be manually done?)
+* How do sellers/buyers sign the transactions w/ their private keys?
+  * They'll need local cli or wallets that support this
+  * Or they can send money to a smart contract?
+
+### Design 2 - Smart Contracts
+
+## Product
+
+* Position as a layer-2 marketplace for all layer-2 products (e.g. buying/selling Ethereum payment channels, lightning, etc.)
+* As more liquidity marketplaces are built, could create an aggregator service like what [0x did](https://matcha.xyz/)
+
+[^1]: Auction mechanics may (and likely will) impact technical design as is the case with [[../lightning-pool]]
+
+
+
+[//begin]: # "Autogenerated link references for markdown compatibility"
+[../lightning-pool]: ../lightning-pool "Lightning Pool"
+[//end]: # "Autogenerated link references"
