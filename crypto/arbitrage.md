@@ -1,9 +1,0 @@
-# Arbitrage
-
-## DeFi
-
-...
-
-## Market Making
-
-...

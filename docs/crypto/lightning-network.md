@@ -3,10 +3,9 @@
 - [[lightning-network-liquidity]]
 - [[lightning-network-developer-resources]]
 
-## Nice Projects
+## Relevant Projects
 
 * ["Breez provides a simple, fast and safe way to spend your bitcoins. Powered by Lightning Network, Breez is the future of commerce"](https://github.com/breez?type=source)
-
 * [NiceHash LN Node anyone can connect to](https://www.nicehash.com/nicehash-lightning-network-node)
 
 ## Centralization

@@ -15,7 +15,7 @@ gem install bundler
 
 bundle
 
-# bundle exec jekyll 3.9.0 new .
+# bundle exec jekyll new .
 ```
 
 ## Running

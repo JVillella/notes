@@ -75,6 +75,7 @@
 [decentralized-exchanges]: decentralized-exchanges "Decentralized Exchanges"
 [social-recovery-wallets]: social-recovery-wallets "Social Recovery Wallets"
 [zk-snarks]: zk-snarks "zk-SNARKs"
+[lightning-network]: lightning-network "Lightning"
 [connecting-blockchains-together]: connecting-blockchains-together "Connecting Blockchains Together"
 [maidsafe]: maidsafe "Maidsafe"
 [asynchronous-trustworthy-transfers]: asynchronous-trustworthy-transfers "Asynchronous Trustworthy Transfers"

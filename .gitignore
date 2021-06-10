@@ -1,2 +1,6 @@
-jw/
-journaling/
+_site
+.sass-cache
+.jekyll-metadata
+
+docs/jw/
+docs/journaling/
