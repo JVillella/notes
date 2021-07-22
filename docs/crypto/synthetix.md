@@ -25,9 +25,19 @@ ETH --> sUSD (exchange) --> sXXX (exchange)
 Get SNX on an exchange --> staking.synthetix.io (stake) --> sUSD (mint) --> sXXX (exchange)
 ```
 
-**Short Positions**
+**Examples**
 
-...
+* See [examples 1 and 2](https://docs.synthetix.io/litepaper)
+
+**Example: total debt goes below collateral**
+
+Step | Alice | Bob | Total Debt
+---|---|---|---
+... | 350 SNX --> 50k sUSD | 350 SNX --> 50k sUSD | 100k sUSD
+... | 50k sUSD --> 1 sBTC | Holds 50k sUSD | ...
+sBTC 50k --> 10k | 30k sUSD debt owed | 30k sUSD debt owed | 60k sUSD
+... | 10k - (60k * 50%) = -20k | 50k - (60k * 50%) = +20k | ...
+... | Needs to obtain 20k to give to Bob (either buy from someone else or stake more SNX to mint sUSD) | ... | ...
 
 **Fine-print**
 

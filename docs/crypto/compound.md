@@ -2,7 +2,14 @@
 
 [Whitepaper](https://compound.finance/documents/Compound.Whitepaper.pdf)
 
-Borrowing rate formula w/ an example
+**Borrowing rate formula (w/ example)**
+
+```
+Exchange Rate = Underlying Balance + Total Borrow Balance
+```
+
+**Borrowing rate formula (w/ example)**
+
 ```
 Utilization Ratio (U)
 	= Total Borrowing Amount /

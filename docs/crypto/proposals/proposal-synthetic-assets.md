@@ -26,6 +26,11 @@ Alice stakes DAI, minting 200 sTSLA, and sells to AMM for $500/unit | `$100,000 
 _Some time later... sTSLA goes up 100% ($1000/unit)_ | `200 sTSLA ($200,000)`
 Alice buys back 200 sTSLA from AMM for $1000/unit, losing $100,000 | `$200,000 --> 200 sTSLA --> $100,000`
 
+## Risks
+
+* Low liquidity per market (e.g. sTSLA)
+* ...
+
 ## Roles
 
 * **Staker:** Stakers are the asset's counterparty. They create CDPs, staking DAI to mint synthetic tokens (sXXX). This is an _overcollateralized_ position according to a ratio of 150% (the _c-ratio_). Stakers must manage their position to ensure they don't get liquidated. Stakers must return the minted sXXX so as to obtain their staked DAI. Stakers hold a _short_ position on sXXX.
@@ -43,7 +48,7 @@ If the price of DAI causes the staker to exceed their c-ratio of 150% or (more l
 * **AMM Exchange Fee:** Incentives LP to stake.
 * **?Stability Fee:** Taken from stakers for issuing sXXX.
 * **?Stake Reward:** Paid to stakers for issuing sXXX.
-* **?Funding Rate:** Paid from shorts to long and vice versa depending on direction of the contract (contago vs backwardation).
+* **?Funding Rate:** Paid from shorts to long and vice versa depending on direction of the contract (contago vs backwardation). One option could be to implement this on the staked money at the AMM exchange.
 * **Keeper Reward:** Paid to keeper for doing their job.
 
 Rewards can be paid from users, buffer (where platform deposists fees), or DAO token.
