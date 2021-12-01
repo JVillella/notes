@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "d637e03bac51f78c",
+    "type": "split",
+    "children": [
+      {
+        "id": "139a8dcaf31db41e",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "docs/crypto/optimism.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "379f36d6322e815f",
+    "type": "split",
+    "children": [
+      {
+        "id": "edbb504e4b7650bd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d95b2de6f855dd66",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "8558bd16ecc43725",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "r",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "70b56695cd9df9a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "87db9bfc527c91e2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "725939d4f69d8cd7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/crypto/optimism.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "139a8dcaf31db41e",
+  "lastOpenFiles": [
+    "docs/crypto/optimism.md",
+    "docs/crypto/layer-2-scaling.md",
+    "docs/journaling/hermes-thinking-ahead.md"
+  ]
+}
