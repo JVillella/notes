@@ -1,7 +1,5 @@
 _site
 .sass-cache
 .jekyll-metadata
-
-docs/jw/
-docs/journaling/
-docs/learning-plans/
+.obsidian/
+docs/private/
