@@ -1,5 +1,5 @@
 # Optimism
-An implementation of Optimistic Rollups, a [[docs/crypto/layer-2-scaling]] solution for [[ethereum]].
+An implementation of Optimistic Rollups, a [[layer-2-scaling]] solution for [[ethereum]].
 
 ### OVM
 

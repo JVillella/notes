@@ -1,6 +1,6 @@
 # Notes
 
-Notes are organized with [Foam](https://foambubble.github.io/) and published to Github Pages ([instructions](https://foambubble.github.io/foam/publishing/publish-to-github-pages.html)).
+Notes are organized with [Foam](https://foambubble.github.io/) / [Obsidian](https://obsidian.md) and published to Github Pages ([instructions](https://foambubble.github.io/foam/publishing/publish-to-github-pages.html)).
 
 ## Install
 
