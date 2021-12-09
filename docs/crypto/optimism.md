@@ -1,5 +1,32 @@
 # Optimism
+
 An implementation of Optimistic Rollups, a [[layer-2-scaling]] solution for [[ethereum]].
+
+## How it Works
+
+Optimistic rollups sit "in parallel" to Ethereum offering significant TPS improvements by avoiding performing computation (during the "happy path"). Since the transactions within optimistic rollups are not actually executed, a fraud detction mechanism is built in called "fraud proofs".
+
+>If someone notices a fraudulent transaction, the rollup will execute a fraud-proof and run the transaction's computation, using the available state data. This means you may have longer wait times for transaction confirmation than a ZK-rollup because the transaction could get challenged.
+
+~[Layer 2 Rollups](https://ethereum.org/en/developers/docs/scaling/layer-2-rollups/#optimistic-rollups)
+
+When you "zoom out" Optimism is basically a chain within a chain. There's a smart contract called the "State Commitment Chain" (SCC) which is an append only log of the state roots of applying each transaction (this "chain" is revertable if the faud proof failed).
+
+Transactions get sent to a (centralized[^1]) sequencer (which puts up the bounty to a bond contract in case of a fraudulent tx). The are plans to [decentralize the sequencer](https://community.optimism.io/docs/protocol/sequencing.html) but as is there are mechanisms in place to frevent censoring of txs by the sequencer. The sequencer is the "miner" appending blocks to its chain (among other things).
+
+**Txs between L1/L2**
+
+L1/L2 calls are not instantaneous / not synchronous (the [bridge contract](https://community.optimism.io/docs/developers/bridge/standard-bridge.html) sitting on L1 will callback to the caller contract "some time in the future"). L2 --> L1 must wait the challange period (7 days). L1 --> L2 should be quick but it's not synchronous. The bridge contract has "helpers" for eth and erc20 transfers (deposits/withdrawals).
+
+Accounts / smart contracts / state are not automatically visible in the L2 chain, it needs to be bridged over, redeployed, etc. This way the sequencer's blockchain is aware of it. If the sequencer goes down, there's a way to rebuild L2 from on-chain L1 data (e.g. via SCC contract)
+
+**Fraud Proofs**
+
+Verifiers run alongside the sequencer monitoring its actions. If they detect an incorrect state root calculation they communicate with L1 chain contracts that re-run the tx (stored as messages in CTC calldata, i.e. `publish(bytes _transactions) public { }`) - uploading necessary L2 state to another L1 StateManager contract. If the resulting state root calculated by L1 smart contract is different than the Sequencer loses staked funds and the verifier makes a profit. To afford time for this "challenging" there is a 7 day L2 --> L1 withdrawal period that has to pass. This will likely rise to market maker services, that for a fee provide L1 ETH for L2 ETH and vice versa.
+
+See [Long withdrawal/dispute periods are fatal for adoption and composability](https://research.paradigm.xyz/rollups)
+
+## Low-level Breakdown
 
 ### OVM
 
@@ -43,7 +70,7 @@ An implementation of Optimistic Rollups, a [[layer-2-scaling]] solution for [[et
 **Batch Processing**
 
 * Verifies context-related invariants (different context than StateDB)
-	* Context is a shared state between 
+	* Context is a shared state between
 	* Sequencer and queued (FIFO) transactions
 * Create merkle tree out of transaction data
 * Batch is converted to a OVM Chain Batch Header, stored on CTC (this header stores merkle root)
@@ -60,6 +87,8 @@ An implementation of Optimistic Rollups, a [[layer-2-scaling]] solution for [[et
 
 **Fraud Proofs**
 
+See [[fraud-proofs]] for explanation of concept.
+
 * “Microblocks” - each block has 1 tx, each block’s stateroot is that produced by 1 tx, this effectively allows for “intermediate state roots”, something no longer support on L1 since EIP98/EIPPR658
 * Verifiers monitor the SCC to see if there’s a mismatch between the stored intermediate state roots and the txs stored in the CTC.
 * A mismatch is found by,
@@ -73,3 +102,5 @@ An implementation of Optimistic Rollups, a [[layer-2-scaling]] solution for [[et
 * Is a time delay on non-sequencer batches safe?
 * How do we guarantee that the deployed contracts are the same on L1 and L2?
 * Why was tx.origin removed? (I.e. support disabled)
+
+[^1]: Centralized sequencers is but one approach. See [Who can submit a batch? - An Incomplete Guide to Rollups](https://vitalik.ca/general/2021/01/05/rollup.html)
