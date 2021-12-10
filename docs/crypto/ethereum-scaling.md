@@ -20,9 +20,9 @@
 
 ## Sharding
 
-...
+* See
 
-## Matic
+## Side Chains
 
 ...
 
