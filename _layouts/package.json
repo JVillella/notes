@@ -1,19 +1,18 @@
 {
   "name": "foam",
   "private": true,
-  "description": "",
+  "description": "Personal notes as I think through new topics; making public in case it's helpful to others.",
   "version": "1.0.0",
   "dependencies": {
-    "gatsby": "^2.23.18",
-    "gatsby-theme-garden": "^0.1.28",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^2.32.13",
+    "gatsby-plugin-mdx": "^3.3.0",
+    "gatsby-theme-garden": "^0.1.66",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0"
   },
-  "keywords": [
-    "foam"
-  ],
-  "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
