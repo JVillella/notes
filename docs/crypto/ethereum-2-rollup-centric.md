@@ -27,7 +27,7 @@
 ## TPS Breakdown
 
 Situation | TPS
--+-
+-|-
 Today | ~15 TPS
 Today | ~15 TPS
 Everyone moves to rollups | ~3,000 TPS

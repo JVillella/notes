@@ -1,8 +1,12 @@
 # Notes
 
+Personal notes made public. Posting in case it's informative to others. Some notes may be stale/incorrect.
+## Index of Notes
+
 docs<br />
 |-- **crypto** <br />
 |&nbsp;&nbsp;&nbsp;|-- [[analyzing-mev-techniques]]<br />
+|&nbsp;&nbsp;&nbsp;|-- [[arbitrum]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[asynchronous-trustworthy-transfers]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[automated-market-makers]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[bancor]]<br />
