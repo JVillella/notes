@@ -27,6 +27,7 @@ docs<br />
 |&nbsp;&nbsp;&nbsp;|-- [[ethereum-scaling]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[ethereum-security]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[ethereum]]<br />
+|&nbsp;&nbsp;&nbsp;|-- [[fork-choice-rules]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[fraud-proofs]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[instability-without-block-rewards]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[layer-1-scaling]]<br />
@@ -36,6 +37,8 @@ docs<br />
 |&nbsp;&nbsp;&nbsp;|-- [[lightning-network-liquidity]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[lightning-network]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[lightning-pool]]<br />
+|&nbsp;&nbsp;&nbsp;|-- [[mev-boost]]<br />
+|&nbsp;&nbsp;&nbsp;|-- [[mev-smoothing]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[optimism]]<br />
 |&nbsp;&nbsp;&nbsp;|-- [[oracles]]<br />
 |&nbsp;&nbsp;&nbsp;|-- **papers**<br />
@@ -97,6 +100,7 @@ _Notes are organized with [Foam](https://foambubble.github.io/) and published to
 [lightning-network-liquidity]: docs/crypto/lightning-network-liquidity "Lightning Network Liquidity"
 [lightning-network]: docs/crypto/lightning-network "Lightning"
 [lightning-pool]: docs/crypto/lightning-pool "Lightning Pool"
+[mev-smoothing]: docs/crypto/mev-smoothing "MEV Smoothing"
 [optimism]: docs/crypto/optimism "Optimism"
 [oracles]: docs/crypto/oracles "Oracles"
 [unity-is-strength]: docs/crypto/papers/unity-is-strength "Unity is Strength: A Formalization of Cross-Domain Maximal Extractable Value"
