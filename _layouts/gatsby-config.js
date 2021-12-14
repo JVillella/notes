@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: "notes",
   siteMetadata: {
     title: "Julian's Notes",
     description: "Personal notes as I think through new topics; making public in case it's helpful to others.",
