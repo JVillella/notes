@@ -1,3 +1,0 @@
-# Byzantine Fault Tolerance
-
-...
