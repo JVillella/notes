@@ -43,6 +43,7 @@
   - [lightning-network](lightning-network)
   - [lightning-pool](lightning-pool)
   - [mev-boost](mev-boost)
+  - [mev-boost](mev-on-eth2)
   - [mev-smoothing](mev-smoothing)
   - [optimism](optimism)
   - [oracles](oracles)
