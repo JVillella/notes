@@ -1,10 +1,13 @@
+---
+---
+
 Discussion on MEV for Eth2, focusing on software stack inc. [[mev-boost]], mev-relay, consensus client, etc.
 
 ## Overview
 
 ### Sequence Diagram
 
-```mermaid
+```mermaid!
 sequenceDiagram
     participant Consensus Client
     participant MEV Boost
@@ -65,7 +68,7 @@ class SignedBlindedBeaconBlock(Container):
 
 ### Commitment
 
-\_TODO: What prevents the validator, after receiving the full block contents from modifying the transaction order that came from the builder?
+TODO: What prevents the validator, after receiving the full block contents from modifying the transaction order that came from the builder?
 
 1. "Validators receive the full block after they sent the signed blinded beacon block. Once that is done, they cannot propose any other block, otherwise they can and will get slashed." - Discord
 2. Wouldn't it be advantageous for the design to have the relay (which is already a point of trust) to broadcast the block since it already got the blind signature for the block? With this setup, the validator never actually sees the block contents. - Thinking out loud...
